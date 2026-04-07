@@ -1,83 +1,38 @@
-# 🚗 8051 Line Follower Robot
+8051 Line Follower Robot
 
-An autonomous line-following robot built using the AT89S52 (8051 microcontroller) and L293D motor driver.  
-The system uses IR sensors to detect a path and control motor movement in real time.
+An autonomous line following robot built using the AT89S52 8051 microcontroller and L293D motor driver. The robot detects a predefined path using IR sensors and adjusts motor movement in real time.
 
----
+Features:
+Real time line detection using IR sensors
+Direction control including forward left right and stop
+Motor control using L293D H bridge driver
+Low level control using 8051 Assembly
+Compact hardware implementation on perf board
 
-## 🔧 Features
+Working Principle:
 
-- Real-time line detection using IR sensors  
-- Direction control (left, right, forward, stop)  
-- Motor driving using L293D H-bridge  
-- Assembly-level control using 8051 microcontroller  
-- Compact hardware implementation on perf-board  
+The robot uses two IR sensors to detect contrast between the line and the background surface.
 
----
+Both sensors on white move forward
+Left sensor on line turn left
+Right sensor on line turn right
+Both sensors on line stop
 
-## 🧠 Working Principle
+The microcontroller continuously reads sensor inputs and controls the motors through the L293D driver.
 
-The robot uses two IR sensors to detect contrast between the line and background:
+Components Used:
+AT89S52 8051 Microcontroller
+L293D Motor Driver IC
+IR Sensors two
+DC Motors two
+7805 Voltage Regulator
+Battery 7 to 12 volts
+Chassis and wheels
+Code
 
-- Both sensors on white → Move forward  
-- Left sensor on line → Turn left  
-- Right sensor on line → Turn right  
-- Both sensors on line → Stop  
+The control logic is implemented in 8051 Assembly and includes
 
-The microcontroller processes sensor inputs and controls motors via the L293D driver.
-
----
-
-## ⚙️ Components Used
-
-- AT89S52 (8051 Microcontroller)  
-- L293D Motor Driver IC  
-- IR Sensors (2)  
-- DC Motors (2)  
-- 7805 Voltage Regulator  
-- Battery (7–12V)  
-- Chassis + Wheels  
-
----
-
-## 🖥️ Code
-
-The control logic is implemented in **8051 Assembly**, handling:
-- Sensor input reading  
-- Decision making  
-- Motor control  
-
----
-
-## 🔌 Circuit Diagram
-
-![Circuit Diagram](Circuit_diagram.png)
-
----
-
-## 🚀 How to Run
-
-1. Assemble the circuit as per the diagram  
-2. Upload the assembly code to AT89S52  
-3. Place the robot on a track  
-4. Power ON  
-
----
-
-## 📌 Future Improvements
-
-- Implement PWM for speed control  
-- Add PID-based control for smoother tracking  
-- Use multi-sensor array for better accuracy  
-
----
-
-## 📷 Demo
-
-*(Add images or video of your robot here)*
-
----
-
-## 👤 Author
-
-Srija  
+Sensor input processing
+Decision making logic
+Motor control
+Circuit Diagram:
