@@ -35,4 +35,7 @@ The control logic is implemented in 8051 Assembly and includes
 Sensor input processing
 Decision making logic
 Motor control
-Circuit Diagram:
+
+
+<img width="788" height="889" alt="image" src="https://github.com/user-attachments/assets/702ab02d-e10e-4d69-8b47-6705dfd314a0" />
+
