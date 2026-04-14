@@ -1,37 +1,36 @@
 ORG 0000H
 
 MAIN:
-    MOV P1, #0FFH      ; Sensors input
-    MOV P2, #00H       ; Motors output
+    MOV P0, #0FFH      ; P0 as input (sensors)
+    MOV P1, #00H       ; P1 as output (motors)
 
 LOOP:
-    JB P1.0, CHECK_RIGHT   ; Left sensor
-    JB P1.2, TURN_LEFT     ; Right sensor
+    JB P0.0, CHECK_RIGHT   ; Left sensor
+    JB P0.1, TURN_LEFT     ; Right sensor
     SJMP STOP
 
 CHECK_RIGHT:
-    JB P1.2, FORWARD
+    JB P0.1, FORWARD
     SJMP TURN_RIGHT
 
 ; -------- MOTOR CONTROL --------
-
-; P2.0 P2.1 ? Motor 1
-; P2.6 P2.7 ? Motor 2
+; P1.0 P1.1 → Left motor
+; P1.2 P1.3 → Right motor
 
 FORWARD:
-    MOV P2, #041H      ; 0100 0001
+    MOV P1, #05H       ; 0000 0101 → both forward
     SJMP LOOP
 
 TURN_LEFT:
-    MOV P2, #040H      ; Right motor only
+    MOV P1, #06H       ; 0000 0110 → left reverse, right forward
     SJMP LOOP
 
 TURN_RIGHT:
-    MOV P2, #001H      ; Left motor only
+    MOV P1, #09H       ; 0000 1001 → left forward, right reverse
     SJMP LOOP
 
 STOP:
-    MOV P2, #000H
+    MOV P1, #00H
     SJMP LOOP
 
 END
